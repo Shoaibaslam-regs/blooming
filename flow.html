@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower Petals</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>/* styles.css */
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0; 
+            overflow: hidden;
+            background-color: rgb(246, 157, 141);
+        }
+        
+        /* canvas {
+            display: block;
+            position: absolute; 
+            top: 0;
+            left: 0;
+        } */
+         .first{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            padding: 40px;
+            font-size: 1.5rem;
+            text-shadow:0px 0cap 5px rgb(226, 5, 5);
+            padding-top: 50px;
+            margin-top: 20%;
+            border: 22px darksalmon double;
+            width: 30%;
+            height: 20%;
+            border-radius: 20px;
+            background-color: blanchedalmond;
+        }
+        #select{ 
+    width: 100px;
+    height: 40px;
+    margin-left:30%;
+    margin-top: 8%;
+    background-color: rgb(221, 167, 177);
+    border: double 5px rgb(210, 123, 94);
+    border-radius: 10px; 
+    cursor: pointer;
+    transform: width 1s ease in out;
+    font-family: cursive;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px gray;
+    box-shadow: 5px 5px 0px rgb(245, 135, 255);
+    
+}
+#select:hover {
+
+    font-family: cursive;
+    font-size: 1rem;
+    text-shadow: 1px 1px gray;
+    background-color: rgb(232, 173, 255);
+    box-shadow: 5px 5px 0px rgb(206, 200, 206);
+    cursor: pointer;  
+    width: 90px;
+    
+
+}
+#pre{ 
+    width: 60px;
+    height: 40px;
+     background-color: rgb(221, 167, 177);
+    border: double 5px rgb(210, 123, 94);
+    border-radius: 10px; 
+    cursor: pointer;
+    font-family: cursive;
+    font-size: 1rem;
+     
+}    
+.foot{ 
+    position: absolute;
+    padding-top: 20px;  
+    font-size: 0.7rem;
+    color: rgb(168, 160, 160); 
+    text-shadow: none; 
+    margin-left: 22%;
+}
+@media(max-width:895px){
+    html{
+        font-size: 55%;
+    }
+    .first{ 
+            padding: 7rem; 
+            text-shadow:0px 0cap 5px rgb(226, 5, 5);
+            padding-top: 8rem;
+            margin-top: 50%;
+            border: 22px darksalmon double;
+            width: 100%;
+          }
+          #select{ 
+    width: 100px;
+    margin-left:30%;
+    margin-top: 8%;
+    font-size: 1.5rem; 
+}
+.foot{ 
+    position: absolute;
+    padding-top: 5rem;  
+    font-size: 1rem;
+     margin-left: 30rem;
+}
+
+
+}
+ 
+        </style>
+</head>
+<body>
+    <!-- <canvas id="petalsCanvas"></canvas> -->
+    <div class="first">
+        <div class="content">
+          From the moment i meet you, I knew you were the one for me. </div> <br>
+          <button id="pre">  &lt;=Pre </button>
+       <button id="select">Click Me</button> 
+       <div class="foot"> "Developed by Shoiab Aslam" </div>
+    </div> 
+
+ 
+          
+
+    <script>
+
+        const context = document.getElementById('select'); 
+        const div = document.querySelector('.content');
+        const pre = document.getElementById('pre');
+        let array=[
+            '"I choose you. And I’ll choose you over and over and over. Without pause, without doubt, in a heartbeat."',
+            '"From this day forward, you will never walk alone. My heart will be your shelter, and my arms will be your home."', 
+            '"You’re the person I want to annoy for the rest of my life"', 
+            '"In you, I’ve found my heart’s perfect match with you"',
+            '"You are my today and all of my tomorrows. Will you make me the luckiest person in the world and say yes?❤️',
+         '"I’ve found the one whom my soul loves. Will you be mine forever?"❤️',
+    ];
+        let j=0;  
+
+        // const canvas = document.getElementById('petalsCanvas');
+        // const ctx = canvas.getContext('2d');
+         
+        // canvas.width = window.innerWidth;
+        // canvas.height = window.innerHeight;
+        
+        // let petals = [];
+        
+        // function random(min, max) {
+        //     return Math.random() * (max - min) + min;
+        // }
+        
+        // function Petal(x, y) {
+        //     this.x = x;
+        //     this.y = y;
+        //     this.radius = random(10, 20);
+        //     this.color = `hsl(${random(0, 360)}, 70%, 80%)`;
+        //     this.velocity = {
+        //         x: random(-0.5, 0.5),
+        //         y: random(1, 3)
+        //     };
+        //     this.spin = random(0.01, 0.03);
+        //     this.angle = random(0, Math.PI * 2);
+        //     this.alpha = 1;
+        // }
+        
+        // Petal.prototype.update = function() {
+        //     this.x += this.velocity.x;
+        //     this.y += this.velocity.y;
+        //     this.angle += this.spin;
+        
+        //     if (this.y > canvas.height) {
+        //         this.y = -this.radius;
+        //         this.x = random(0, canvas.width);
+        //     }
+        // };
+        
+        // Petal.prototype.draw = function() {
+        //     ctx.save();
+        //     ctx.translate(this.x, this.y);
+        //     ctx.rotate(this.angle);
+        //     ctx.beginPath();
+        //     ctx.moveTo(0, 0);
+        //     ctx.arc(0, 0, this.radius, 0, Math.PI * 2);
+        //     ctx.fillStyle = this.color;
+        //     ctx.fill();
+        //     ctx.restore();
+        // };
+        
+        // function animate() {
+        //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        //     if (petals.length < 100) {
+        //         let x = random(0, canvas.width);
+        //         let y = random(-canvas.height, 0);
+        //         petals.push(new Petal(x, y));
+        //     }
+        
+        //     petals.forEach(petal => {
+        //         petal.update();
+        //         petal.draw();
+        //     });
+        
+        //     requestAnimationFrame(animate);
+        // }
+        
+        // animate();
+        
+        // window.addEventListener('resize', () => {
+            //     canvas.width = window.innerWidth;
+            //     canvas.height = window.innerHeight;
+            // });
+            
+            context.addEventListener('click', ()=>{
+        if(j < array.length - 1){
+            j++;
+            div.textContent = array[j];
+        }
+        else{
+
+            div.textContent = "All quotes have been displayed:"
+            // context.removeEventListener('click', arguments.callee);
+             
+        }
+     }); 
+
+     pre.addEventListener('click', ()=>{
+         
+         if(j > 0){
+            j--;
+            div.textContent = array[j];
+        }
+        else {
+          div.textContent = "This is the first quote.";
+         }
+     })
+      
+       </script>
+</body>
+</html>

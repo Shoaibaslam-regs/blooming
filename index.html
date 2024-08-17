@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+         background-image:linear-gradient(to left,rgba(255, 192, 203, 0.696), rgba(128, 0, 128, 0.559),
+          rgba(225, 109, 109, 0.706), rgba(255, 0, 0, 0.672), rgba(0, 0, 255, 0.627)) ;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container { 
+
+        text-align: center;
+    }
+     
+
+         @media only screen and (min-width: 1024px) {
+    .container { 
+    width: 45%; 
+    box-sizing: border-box;
+    margin-left: 8%;
+    margin-top: -7%;         
+}
+  
+            .container h1{  
+
+     padding: 50px;
+     font-size: 1.5rem;
+     font-family:cursive;
+     text-shadow: 1px 1px 1px purple;
+     margin-top: 20%;
+     border: 2px solid red;
+     border: 12px rgb(252, 87, 32) double;
+     width: 70%;
+     height: 0%;
+     border-radius: 20px;
+     background-color: rgb(245, 211, 161);}
+         
+    button {  
+        font-weight:bolder; 
+        width: 100px; 
+        padding: 10px 20px;
+        font-size: 16px; 
+        border:double 8px rgb(252, 87, 32) ;
+        border-radius: 15px;
+        font-size:0.8rem;
+        cursor: pointer;
+        position: relative;   
+        box-shadow: 5px 5px 0px rgb(206, 200, 206);
+        background-color:rgb(245, 211, 161);
+
+         }
+         button:hover{
+            
+            background-color: rgb(207, 228, 247);
+            cursor: pointer;
+            box-shadow: 0px 0px 10px yellow;
+         }
+            
+    
+    }
+    
+ 
+
+
+         @media only screen and (max-width: 480px) {
+            .container { 
+               width: 100%;
+               box-sizing: border-box; 
+
+}
+  
+            .container h1{  
+
+     padding: 50px;
+     font-size: 1.5rem;
+     font-family:cursive;
+     text-shadow: 1px 1px 1px purple;
+     margin-top: 20%;
+     border: 2px solid red;
+     border: 12px rgb(252, 87, 32) double;
+     width: 70%;
+     height: 0%;
+     border-radius: 20px;
+     background-color: rgb(245, 211, 161);}
+         
+    button {  
+        font-weight:bolder; 
+        width: 100px; 
+        padding: 10px 20px;
+        font-size: 16px; 
+        border:double 8px rgb(252, 87, 32) ;
+        border-radius: 15px;
+        font-size:0.8rem;
+        cursor: pointer;
+        position: relative;   
+        box-shadow: 5px 5px 0px rgb(206, 200, 206);
+        background-color:rgb(245, 211, 161);
+        }
+
+         button:hover{
+            
+            background-color: rgb(207, 228, 247);
+            cursor: pointer;
+            box-shadow: 0px 0px 10px yellow;
+         }
+            
+    
+    }
+    
+ 
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <h1>"The best love is the kind that awakens the soul and makes us reach for more. Will you be mine forever?"&#128151</h1>
+        <button id="shyBtn">NO &#128531</button>
+        <button id="Btn">YES &#128525</button>
+    </div>
+    <script>
+        const button = document.getElementById('shyBtn');
+        const button2=document.getElementById('Btn'); 
+        let emoji=['NO😀', 'NO😎', 'NO🤩', 'NO😂','NO😆','NO😁','NO😂','NO😝','NO😜'];
+        let i=0;
+        
+        var newTextArray = ["Nice Try But You Can't😂", "You have only one choise😝", "Click on 'YES'🤩"];
+        var currentIndex = 0;
+
+        button.addEventListener('mouseover', () => {
+            const x = Math.floor(Math.random() * (window.innerWidth - button.clientWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - button.clientHeight));
+            button.style.position = 'absolute';
+            
+            i = (i+1)%emoji.length;
+            button.textContent = emoji[i]; 
+            
+            const divs = document.querySelector(".container h1"); 
+            currentIndex = (currentIndex + 1) % newTextArray.length;
+            divs.textContent = newTextArray[currentIndex];
+            
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        });
+        button2.addEventListener('click',()=>{
+            window.open("./flow.html");
+        });
+        </script>
+
+</body>
+</html>
+
+ 
